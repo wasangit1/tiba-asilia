@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiba Asilia na Jadi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #064420, #0C6B30, #0F8C3D);
+        color: #fff;
+        overflow-x: hidden;
+    }
+    header {
+        text-align: center;
+        padding: 50px 20px 20px;
+    }
+    header img {
+        width: 120px;
+        animation: zoomIn 2s ease forwards;
+    }
+    header h1 {
+        margin-top: 20px;
+        font-size: 32px;
+        animation: fadeInDown 2s ease;
+    }
+    header p {
+        margin-top: 10px;
+        font-size: 18px;
+        animation: fadeInDown 3s ease;
+    }
+    
+    
+    
+    .premium-description {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #0a3d0a, #145214);
+    padding: 80px 20px;
+    border-radius: 30px;
+    margin: 60px 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+.premium-description .waves {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
+    animation: moveWaves 15s infinite linear;
+    z-index: 0;
+}
+@keyframes moveWaves {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.premium-description .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+.premium-description .icon img {
+    width: 120px;
+    filter: drop-shadow(0 0 15px rgba(0,255,0,0.7));
+    animation: pulseIcon 4s infinite;
+}
+@keyframes pulseIcon {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.1);}
+    100% { transform: scale(1);}
+}
+.premium-description h2 {
+    font-size: 36px;
+    margin: 20px 0;
+    background: linear-gradient(90deg, #ffffff, #00ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 5s infinite alternate;
+}
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    100% { background-position: 100%; }
+}
+.premium-description p {
+    font-size: 22px;
+    color: #e0ffe0;
+    margin-top: 20px;
+    line-height: 1.8;
+    min-height: 150px;
+}
+
+    
+    .download-btn {
+        margin-top: 30px;
+        background: #ffffff;
+        color: #064420;
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .download-btn:hover {
+        background: #e6e6e6;
+        transform: scale(1.05);
+    }
+    .screenshots {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 50px;
+        padding: 0 20px 80px;
+    }
+    .screenshots img {
+        width: 250px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translatey(0px); }
+        50% { transform: translatey(-20px); }
+        100% { transform: translatey(0px); }
+    }
+    @keyframes zoomIn {
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-50px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.7);
+        animation: fadeIn 0.5s ease forwards;
+    }
+    .modal-content {
+        background: #fff;
+        color: #064420;
+        margin: 10% auto;
+        padding: 40px 30px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        animation: popUp 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    @keyframes popUp {
+        from {transform: scale(0.7);}
+        to {transform: scale(1);}
+    }
+    .modal-content button {
+        margin-top: 20px;
+        background: #0C6B30;
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .modal-content button:hover {
+        background: #0F8C3D;
+    }
+    .loader {
+        display: none;
+        margin: 20px auto 0;
+    }
+    .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/2917/2917998.png" alt="Tiba Asilia Logo">
+    <h1>Tiba Asilia na Jadi</h1>
+    <p>Uponyaji wa Asili na Dawa za Jadi za Kisasa</p>
+    <button class="download-btn" onclick="openModal()">Pakua App</button>
+</header>
+
+<section class="screenshots">
+    
+    
+    <section class="premium-description" id="premium-description">
+  <div class="waves"></div>
+  <div class="content">
+    <div class="icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3448/3448470.png" alt="Tiba Icon">
+    </div>
+    <h2 id="premium-title">Karibu Tiba Asili na Jadi</h2>
+    <p id="premium-paragraph"></p>
+  </div>
+</section>
+
+
+
+    
+    
+    <img src="2.jpg" alt="Screenshot 1" loading="lazy">
+    <img src="3.jpg" alt="Screenshot 2" loading="lazy">
+
+    
+    
+    
+    <img src="4.jpg" alt="Screenshot 1" loading="lazy">
+    <img src="5.jpg" alt="Screenshot 2" loading="lazy">
+</section>
+
+<div class="modal" id="downloadModal">
+    <div class="modal-content">
+        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_j1adxtyb.json"  background="transparent" speed="1" style="width: 100px; height: 100px; margin: auto;" loop autoplay></lottie-player>
+        <h2>Pakua Tiba Asilia APK</h2>
+        <div class="loader" id="loader">
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_usmfx6bp.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+        </div>
+        <button onclick="downloadAPK()">Download Sasa</button>
+    </div>
+</div>
+
+<footer class="footer">
+    &copy; 2025 Tiba Asilia na Jadi. All Rights Reserved.
+</footer>
+
+<script>
+    function openModal() {
+        document.getElementById('downloadModal').style.display = 'block';
+    }
+    function downloadAPK() {
+        const loader = document.getElementById('loader');
+        loader.style.display = 'block';
+        setTimeout(function() {
+            loader.style.display = 'none';
+            window.location.href = 'tiba-asilia.apk';
+        }, 3000);
+    }
+    window.onclick = function(event) {
+        const modal = document.getElementById('downloadModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+<script>
+
+const texts = [
+  "Jifunze Tiba Asili na Jadi kupitia App hii!",
+  "Utaweza kujifunza na kujua dawa na namna mbalimbali za kujitibu.",
+  "Watanzania wengi wamenufaika kupitia App yetu. Karibu Sana!"
+];
+let txtIndex = 0;
+let charIndex = 0;
+let currentParagraph = document.getElementById('premium-paragraph');
+
+function typeLoop() {
+  if (charIndex < texts[txtIndex].length) {
+    currentParagraph.innerHTML += texts[txtIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeLoop, 40); 
+  } else {
+    setTimeout(eraseText, 2000);
+  }
+}
+
+function eraseText() {
+  if (charIndex > 0) {
+    currentParagraph.innerHTML = texts[txtIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(eraseText, 20);
+  } else {
+    txtIndex++;
+    if (txtIndex >= texts.length) txtIndex = 0;
+    setTimeout(typeLoop, 500);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', typeLoop);
+</script>
+
+</body>
+</html>
